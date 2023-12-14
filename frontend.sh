@@ -12,7 +12,6 @@ cd /usr/share/nginx/html
 unzip /tmp/frontend.zip
 
 echo -e '\e[32m >>>>>>>>>>>>> Copy roboshop conf <<<<<<<<<<<<\e[0m'
-pwd
 cp /home/centos/roboshop-shell/roboshop.conf /etc/nginx/default.d/roboshop.conf
 
 echo -e '\e[32m >>>>>>>>>>>>> start nginx <<<<<<<<<<<<\e[0m'
