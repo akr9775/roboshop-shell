@@ -5,7 +5,7 @@ echo -e '\e[32m >>>>>>>>>>>>> add application user <<<<<<<<<<<<\e[0m'
 useradd roboshop
 
 echo -e '\e[32m >>>>>>>>>>>>> copy service file <<<<<<<<<<<<\e[0m'
-cp dispatch.service /etc/systemd/system/dispatch.service
+cp /home/centos/roboshop-shell/dispatch.service /etc/systemd/system/dispatch.service
 
 echo -e '\e[32m >>>>>>>>>>>>> create app directory <<<<<<<<<<<<\e[0m'
 rm -rf /app

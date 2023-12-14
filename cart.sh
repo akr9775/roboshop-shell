@@ -6,7 +6,7 @@ dnf module enable nodejs:18 -y
 dnf install nodejs -y
 
 echo -e '\e[32m >>>>>>>>>>>>> copy cart service file <<<<<<<<<<<<\e[0m'
-cp cart.service /etc/systemd/system/cart.service
+cp /home/centos/roboshop-shell/cart.service /etc/systemd/system/cart.service
 
 echo -e '\e[32m >>>>>>>>>>>>> add application cart <<<<<<<<<<<<\e[0m'
 useradd roboshop

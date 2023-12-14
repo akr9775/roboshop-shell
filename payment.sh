@@ -5,7 +5,7 @@ echo -e '\e[32m >>>>>>>>>>>>> add application user <<<<<<<<<<<<\e[0m'
 useradd roboshop
 
 echo -e '\e[32m >>>>>>>>>>>>> disable nodejs default version <<<<<<<<<<<<\e[0m'
-cp payment.service /etc/systemd/system/payment.service
+cp /home/centos/roboshop-shell/payment.service /etc/systemd/system/payment.service
 
 echo -e '\e[32m >>>>>>>>>>>>>carete app directory <<<<<<<<<<<<\e[0m'
 rm -rf /app
