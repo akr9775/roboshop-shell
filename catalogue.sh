@@ -31,7 +31,7 @@ echo -e '\e[32m >>>>>>>>>>>>> install mongo client <<<<<<<<<<<<\e[0m'
 dnf install mongodb-org-shell -y
 
 echo -e '\e[32m >>>>>>>>>>>>> load schema <<<<<<<<<<<<\e[0m'
-mongo --host MONGODB-SERVER-IPADDRESS </app/schema/catalogue.js
+mongo --host mongodb-dev.akrdevopsb72.online </app/schema/catalogue.js
 
 echo -e '\e[32m >>>>>>>>>>>>> start catalogue service <<<<<<<<<<<<\e[0m'
 systemctl daemon-reload

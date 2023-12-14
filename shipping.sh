@@ -25,7 +25,7 @@ echo -e '\e[32m >>>>>>>>>>>>> install mysql client <<<<<<<<<<<<\e[0m'
 dnf install mysql -y
 
 echo -e '\e[32m >>>>>>>>>>>>> load schema <<<<<<<<<<<<\e[0m'
-mysql -h <MYSQL-SERVER-IPADDRESS> -uroot -pRoboShop@1 < /app/schema/shipping.sql
+mysql -h mysql-dev.akrdevopsb72.online -uroot -pRoboShop@1 < /app/schema/shipping.sql
 
 echo -e '\e[32m >>>>>>>>>>>>> start shipping service <<<<<<<<<<<<\e[0m'
 systemctl daemon-reload
