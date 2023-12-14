@@ -2,7 +2,7 @@ echo -e '\e[32m >>>>>>>>>>>>> install python <<<<<<<<<<<<\e[0m'
 dnf install python36 gcc python3-devel -y
 
 echo -e '\e[32m >>>>>>>>>>>>> add application user <<<<<<<<<<<<\e[0m'
-useradd roboshop
+useradd ${app_user}
 
 echo -e '\e[32m >>>>>>>>>>>>> disable nodejs default version <<<<<<<<<<<<\e[0m'
 cp /home/centos/roboshop-shell/payment.service /etc/systemd/system/payment.service

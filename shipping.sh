@@ -2,7 +2,7 @@ echo -e '\e[32m >>>>>>>>>>>>> install maven <<<<<<<<<<<<\e[0m'
 dnf install maven -y
 
 echo -e '\e[32m >>>>>>>>>>>>> add application user <<<<<<<<<<<<\e[0m'
-useradd roboshop
+useradd ${app_user}
 
 echo -e '\e[32m >>>>>>>>>>>>> install nodejs <<<<<<<<<<<<\e[0m'
 cp /home/centos/roboshop-shell/shipping.service /etc/systemd/system/shipping.service

@@ -1,3 +1,6 @@
+source common.sh
+
+
 echo -e '\e[32m >>>>>>>>>>>>> disable nodejs default version <<<<<<<<<<<<\e[0m'
 dnf module disable nodejs -y
 
@@ -12,9 +15,10 @@ echo -e '\e[32m >>>>>>>>>>>>> copy mongo repo <<<<<<<<<<<<\e[0m'
 cp /home/centos/roboshop-shell/mongo.repo /etc/yum.repos.d/mongo.repo
 
 echo -e '\e[32m >>>>>>>>>>>>> add application user <<<<<<<<<<<<\e[0m'
-useradd roboshop
+useradd ${app_user}
 
 echo -e '\e[32m >>>>>>>>>>>>> create app directory <<<<<<<<<<<<\e[0m'
+rm -rf /app
 mkdir /app
 
 echo -e '\e[32m >>>>>>>>>>>>> download catalogue content <<<<<<<<<<<<\e[0m'
