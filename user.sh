@@ -1,3 +1,4 @@
+
 echo -e '\e[32m >>>>>>>>>>>>> disable nodejs default version <<<<<<<<<<<<\e[0m'
 dnf module disable nodejs -y
 
