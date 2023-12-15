@@ -3,6 +3,11 @@ script_path=$(dirname "$script")
 source ${script_path}/common.sh
 mysql_appuser_password=$1
 
+if [ -z "$mysql_appuser_password" ]; then
+  echo input mysql appuser password is missing
+  exit 1
+fi
+
 
 component=shipping
 func_java

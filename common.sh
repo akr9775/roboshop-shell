@@ -1,19 +1,21 @@
 app_user=roboshop
 
 func_printhead() {
-  echo -e '\e[32m >>>>>>>>>>>>> "$1" <<<<<<<<<<<<\e[0m'
+  echo -e '\e[32m >>>>>>>>>>>>> $1 <<<<<<<<<<<<\e[0m'
 }
 
 func_schema_setup() {
-  if ["schema_setup" == "mongodb"]; then
-  echo -e '\e[32m >>>>>>>>>>>>> copy mongo repo <<<<<<<<<<<<\e[0m'
-  cp ${script_path}/mongo.repo /etc/yum.repos.d/mongo.repo
+  if [ "$schema_setup" == "mongodb" ]; then
+    func_printhead "copy mongo repo"
+    cp ${script_path}/mongo.repo /etc/yum.repos.d/mongo.repo
 
-  echo -e '\e[32m >>>>>>>>>>>>> install mongo client <<<<<<<<<<<<\e[0m'
-  dnf install mongodb-org-shell -y
+    func_printhead "install mongo client'
+    dnf install mongodb-org-shell -y
 
-  echo -e '\e[32m >>>>>>>>>>>>> load schema <<<<<<<<<<<<\e[0m'
-  mongo --host mongodb-dev.akrdevopsb72.online </app/schema/catalogue.js
+    func_printhead "load schema"
+    mongo --host mongodb-dev.akrdevopsb72.online </app/schema/catalogue.js
+
+
   fi
 }
 

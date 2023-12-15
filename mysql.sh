@@ -1,5 +1,10 @@
 mysql_root_password=$1
 
+if [ -z "$mysql_root_password" ]; then
+  echo input mysql appuser password is missing
+  exit 1
+fi
+
 echo -e '\e[32m >>>>>>>>>>>>> disable mysql default version <<<<<<<<<<<<\e[0m'
 dnf module disable mysql -y
 
