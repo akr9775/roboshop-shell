@@ -6,7 +6,7 @@ func_printhead() {
 }
 
 func_schema_setup() {
-  if [ "$schema_setup" == "mongodb" ]; then
+  if [ "$schema_setup" == "mongo" ]; then
     func_printhead "copy mongo repo"
     cp ${script_path}/mongo.repo /etc/yum.repos.d/mongo.repo &>>/tmp/roboshop.log
     func_stat_check $?
@@ -28,7 +28,7 @@ func_nodejs() {
 
   func_printhead "install nodejs"
   dnf module enable nodejs:18 -y &>>/tmp/roboshop.log
-  dnf install nodejs -y
+  dnf install nodejs -y &>>/tmp/roboshop.log
   func_stat_check $?
 
   func_printhead "copy ${component} service file"
