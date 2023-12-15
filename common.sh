@@ -1,7 +1,7 @@
 app_user=roboshop
 
 func_printhead() {
-  echo -e '\e[32m >>>>>>>>>>>>> $1 <<<<<<<<<<<<\e[0m'
+  echo -e "\e[32m >>>>>>>>>>>>> $1 <<<<<<<<<<<<\e[0m"
 }
 
 func_schema_setup() {
@@ -9,13 +9,11 @@ func_schema_setup() {
     func_printhead "copy mongo repo"
     cp ${script_path}/mongo.repo /etc/yum.repos.d/mongo.repo
 
-    func_printhead "install mongo client'
+    func_printhead "install mongo client"
     dnf install mongodb-org-shell -y
 
     func_printhead "load schema"
     mongo --host mongodb-dev.akrdevopsb72.online </app/schema/catalogue.js
-
-
   fi
 }
 
@@ -118,8 +116,19 @@ func_java() {
 
   func_printhead start ${component} service
   systemctl daemon-reload
-  systemctl enable ${component}
+  systemctl enable ${component} &>>/tmp/roboshop.log
   systemctl restart ${component}
+
+}
+
+
+func_stat_check() {
+  if [ $1 -eq 0 ]; then
+    echo -e "\e[32mSUCCESS\e[0m"
+  else
+    echo -e "\e[33mFAILURE\e[0m"
+    exit 1
+  fi
 
 }
 
