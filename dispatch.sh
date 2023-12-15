@@ -1,3 +1,6 @@
+script=$(realpath "$0")
+script_path=$(dirname "$script")
+source ${script_path}/common.sh
 
 
 echo -e '\e[32m >>>>>>>>>>>>> install golang <<<<<<<<<<<<\e[0m'
@@ -7,7 +10,8 @@ echo -e '\e[32m >>>>>>>>>>>>> add application user <<<<<<<<<<<<\e[0m'
 useradd ${app_user}
 
 echo -e '\e[32m >>>>>>>>>>>>> copy service file <<<<<<<<<<<<\e[0m'
-cp /home/centos/roboshop-shell/dispatch.service /etc/systemd/system/dispatch.service
+sed -i -e "s|rabbitmq_root_password|${rabbitmq_root_password}" ${script_path}/dispatch.service
+cp ${script_path}/dispatch.service /etc/systemd/system/dispatch.service
 
 echo -e '\e[32m >>>>>>>>>>>>> create app directory <<<<<<<<<<<<\e[0m'
 rm -rf /app

@@ -1,3 +1,6 @@
+script=$(realpath "$0")
+script_path=$(dirname "$script")
+source ${script_path}/common.sh
 
 echo -e '\e[32m >>>>>>>>>>>>> disable nodejs default version <<<<<<<<<<<<\e[0m'
 dnf module disable nodejs -y
@@ -7,10 +10,10 @@ dnf module enable nodejs:18 -y
 dnf install nodejs -y
 
 echo -e '\e[32m >>>>>>>>>>>>> copy user service file <<<<<<<<<<<<\e[0m'
-cp /home/centos/roboshop-shell/user.service /etc/systemd/system/user.service
+cp ${script_path}/user.service /etc/systemd/system/user.service
 
 echo -e '\e[32m >>>>>>>>>>>>> copy mongo repo <<<<<<<<<<<<\e[0m'
-cp /home/centos/roboshop-shell/mongo.repo /etc/yum.repos.d/mongo.repo
+cp ${script_path}/mongo.repo /etc/yum.repos.d/mongo.repo
 
 echo -e '\e[32m >>>>>>>>>>>>> add application user <<<<<<<<<<<<\e[0m'
 useradd ${app_user}

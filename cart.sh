@@ -1,3 +1,8 @@
+script=$(realpath "$0")
+script_path=$(dirname "$script")
+source ${script_path}/common.sh
+
+
 echo -e '\e[32m >>>>>>>>>>>>> disable nodejs default version <<<<<<<<<<<<\e[0m'
 dnf module disable nodejs -y
 
@@ -6,7 +11,7 @@ dnf module enable nodejs:18 -y
 dnf install nodejs -y
 
 echo -e '\e[32m >>>>>>>>>>>>> copy cart service file <<<<<<<<<<<<\e[0m'
-cp /home/centos/roboshop-shell/cart.service /etc/systemd/system/cart.service
+cp ${script_path}/cart.service /etc/systemd/system/cart.service
 
 echo -e '\e[32m >>>>>>>>>>>>> add application cart <<<<<<<<<<<<\e[0m'
 useradd ${app_user}

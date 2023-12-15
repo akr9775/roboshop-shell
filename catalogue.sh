@@ -1,7 +1,6 @@
-script=$(realpath $0)
-script_path=$(dirname $script)
+script=$(realpath "$0")
+script_path=$(dirname "$script")
 source ${script_path}/common.sh
-
 
 echo -e '\e[32m >>>>>>>>>>>>> disable nodejs default version <<<<<<<<<<<<\e[0m'
 dnf module disable nodejs -y
