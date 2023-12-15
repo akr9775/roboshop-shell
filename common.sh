@@ -123,35 +123,4 @@ func_java() {
 
 }
 
-#func_golang() {
-#  func_printhead install golang
-#  dnf install golang -y
-#
-#  func_printhead add application user
-#  useradd ${app_user}
-#
-#  func_printhead copy service file
-#  sed -i -e "s|rabbitmq_root_password|${rabbitmq_root_password}|" ${script_path}/${component}.service
-#  cp ${script_path}/${component}.service /etc/systemd/system/${component}.service
-#
-#  func_printhead create app directory
-#  rm -rf /app
-#  mkdir /app
-#
-#  func_printhead download app content
-#  curl -L -o /tmp/${component}.zip https://roboshop-artifacts.s3.amazonaws.com/${component}.zip
-#
-#  func_printhead unzip app content
-#  cd /app
-#  unzip /tmp/${component}.zip
-#
-#  func_printhead download dependencies
-#  go mod init ${component}
-#  go get
-#  go build
-#
-#  func_printhead start ${component} service
-#  systemctl daemon-reload
-#  systemctl enable ${component}
-#  systemctl restart ${component}
-#}
+
