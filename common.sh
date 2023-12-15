@@ -16,7 +16,7 @@ func_schema_setup() {
     func_stat_check $?
 
     func_printhead "load schema"
-    mongo --host mongodb-dev.akrdevopsb72.online </app/schema/catalogue.js &>>/tmp/roboshop.log
+    mongo --host mongodb-dev.akrdevopsb72.online </app/schema/${component}.js &>>/tmp/roboshop.log
     func_stat_check $?
   fi
 }
