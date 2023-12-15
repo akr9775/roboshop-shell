@@ -1,7 +1,7 @@
 app_user=roboshop
 
 func_printhead() {
-  echo -e '\e[32m >>>>>>>>>>>>> $1 <<<<<<<<<<<<\e[0m'
+  echo -e '\e[32m >>>>>>>>>>>>> "$1" <<<<<<<<<<<<\e[0m'
 }
 
 func_schema_setup() {
