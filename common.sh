@@ -5,7 +5,7 @@ func_printhead() {
 }
 
 func_schema_setup() {
-  if [schema_setup == "mongodb"]; then
+  if ["schema_setup" == "mongodb"]; then
   echo -e '\e[32m >>>>>>>>>>>>> copy mongo repo <<<<<<<<<<<<\e[0m'
   cp ${script_path}/mongo.repo /etc/yum.repos.d/mongo.repo
 
